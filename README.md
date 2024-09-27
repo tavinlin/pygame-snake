@@ -5,5 +5,8 @@ This snake game was created using the Pygame library. Currently you can move the
 - Display score
 - Border to prevent the snake from going out of boundary
 - End the game when the snake collide the border or itself
+- Prevent snake from moving the opposite direction from where it moving
 
-### Develpment Log:
+### Development Log:
+
+9/27/2024 - Changed to Pygame collide detector method between the snake and food. Added a restriction to prevent the snake from moving the oppositie direction from where it movings towards.

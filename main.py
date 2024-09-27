@@ -30,20 +30,26 @@ while running:
 
     screen.fill("black")
 
-    if snake_pixel.center == target.center:
+    # Collide Events
+    if snake_pixel.colliderect(target):
         target.center = generate_starting_position()
         snake_length += 1
         snake.append(snake_pixel.copy())
 
+    # Key Press Event
     keys = pygame.key.get_pressed()
     if keys[pygame.K_w]:
-        snake_direction = (0, - pixel_width)
+        if snake_direction != (0, pixel_width):
+            snake_direction = (0, -pixel_width)
     if keys[pygame.K_s]:
-        snake_direction = (0, pixel_width)
+        if snake_direction != (0, -pixel_width):
+            snake_direction = (0, pixel_width)
     if keys[pygame.K_a]:
-        snake_direction = (- pixel_width, 0)
+        if snake_direction != (pixel_width, 0):
+            snake_direction = (-pixel_width, 0)
     if keys[pygame.K_d]:
-        snake_direction = (pixel_width, 0)
+        if snake_direction != (-pixel_width, 0):
+            snake_direction = (pixel_width, 0)
 
     for snake_part in snake:
         pygame.draw.rect(screen, "green", snake_part)
